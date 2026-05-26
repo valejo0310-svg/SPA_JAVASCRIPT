@@ -47,7 +47,7 @@ La aplicación implementa:
 - HTML5
 - CSS3
 - JavaScript ES6+
-- Fetch API
+- Axios API
 - ES Modules
 
 ---
@@ -95,6 +95,8 @@ spa-rick-morty/
 
 ```bash
 VITE_API_URL=https://rickandmortyapi.com/api
+VITE_CONTENT_TYPE=application/json
+VITE_TIME_OUT=5000
 ```
 
 ## Ejecutar el proyecto
