@@ -20,18 +20,6 @@ export function episodeCard(episode) {
       <span id="character-count">${episode.characters.length}</span>
     </p>
 
-    <div id="episode-actions" class="actions">
-
-      <button id="btn-editar" class="btn btn-success">
-        Editar
-      </button>
-
-      <button id="btn-delete" class="btn btn-danger">
-        Eliminar
-      </button>
-
-    </div>
-
   </div>
 
 </div>
