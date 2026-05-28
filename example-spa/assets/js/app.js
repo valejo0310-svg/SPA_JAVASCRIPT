@@ -7,7 +7,7 @@
 import { loadNavbar } from './components/navbar.js';
 import { router } from './router.js';
 import { saveAllData } from './services/api.js';
-
+import { initializeLocalData } from './services/api.js';
 /**
  * Navega entre rutas sin recargar.
  *
@@ -22,6 +22,7 @@ export function navigateTo(url) {
  * Inicialización principal.
  */
 window.addEventListener('DOMContentLoaded', async () => {
+    await initializeLocalData();
     await loadNavbar();
     router();
 

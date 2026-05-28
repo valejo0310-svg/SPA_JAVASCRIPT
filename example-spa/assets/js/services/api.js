@@ -3,7 +3,9 @@
  */
 
 import httpClient from './httpClient.js';
-
+const CHARACTERS_KEY = 'db_characters';
+const EPISODES_KEY = 'db_episodes';
+const LOCATIONS_KEY = 'db_locations';
 /**
  * Obtiene personajes.
  *
@@ -66,7 +68,40 @@ export async function saveAllData() {
     }
 }
 
+export async function initializeLocalData() {
+    const characters = localStorage.getItem(CHARACTERS_KEY);
 
+    if (!characters) {
+        await saveAllData();
+    }
+}
+export function getLocalCharacters() {
+    const data = localStorage.getItem(CHARACTERS_KEY);
+
+    if (!data) {
+        return [];
+    }
+
+    return JSON.parse(data);
+}
+export function createCharacter(characterData) {
+    const characters = getLocalCharacters();
+
+    const newCharacter = {
+        id: Date.now(),
+        name: characterData.name,
+        status: characterData.status,
+        species: characterData.species,
+        gender: characterData.gender,
+        image: characterData.image
+    };
+
+    characters.push(newCharacter);
+
+    localStorage.setItem(CHARACTERS_KEY, JSON.stringify(characters));
+
+    return newCharacter;
+}
 export function deleteCharacter(id) {
     const estaSeguro = confirm("¿Estás seguro de que deseas eliminar este personaje?");
 
