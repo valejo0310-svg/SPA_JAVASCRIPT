@@ -67,9 +67,6 @@ export async function saveAllData() {
 }
 
 
-if (!localStorage.getItem('db_characters')){saveAllData()
-}
-
 export function deleteCharacter(id) {
     const estaSeguro = confirm("¿Estás seguro de que deseas eliminar este personaje?");
 

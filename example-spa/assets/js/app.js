@@ -41,3 +41,6 @@ window.addEventListener('DOMContentLoaded', async () => {
  * Maneja las acciones de ir atrás/adelante en el navegador navegador
  */
 window.addEventListener('popstate', router);
+
+if (!localStorage.getItem('db_characters')){saveAllData()
+}

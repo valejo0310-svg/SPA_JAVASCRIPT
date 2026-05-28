@@ -14,5 +14,25 @@
     </div>
 
     <script type="module" src="./assets/js/app.js"></script>
+    <div id="edit-modal" class="modal-overlay hidden">
+    <div class="modal">
+        <h2>Editar Personaje</h2>
+        <form id="edit-form">
+            <label for="edit-name">Nombre</label>
+            <input type="text" id="edit-name" placeholder="Nombre" />
+
+            <label for="edit-status">Status</label>
+            <input type="text" id="edit-status" placeholder="Alive / Dead / unknown" />
+
+            <label for="edit-species">Species</label>
+            <input type="text" id="edit-species" placeholder="Human / Alien..." />
+
+            <div class="modal-actions">
+                <button type="submit" class="btn btn--save">Guardar</button>
+                <button type="button" id="cancel-edit" class="btn btn--cancel">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
