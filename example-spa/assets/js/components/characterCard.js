@@ -23,17 +23,17 @@ export function characterCard(character) {
                 </p>
             </div>
             <div class="card-actions">
-                    <button
-                        class="btn btn--edit"
-                        data-action="edit"
-                        data-id=""
-                    >Editar</button>
-                    <button
-                        class="btn btn--delete"
-                        data-action="delete"
-                        data-id=""
-                    >Eliminar</button>
-                </div>
+                <button
+                    class="btn btn--edit"
+                    data-action="edit"
+                    data-id="${character.id}"
+                >Editar</button>
+                <button
+                    class="btn btn--delete"
+                    data-action="delete"
+                    data-id="${character.id}"
+                >Eliminar</button>
+            </div>
         </article>
     `;
 }

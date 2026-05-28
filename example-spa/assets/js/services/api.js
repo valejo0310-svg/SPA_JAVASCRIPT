@@ -66,3 +66,28 @@ export async function saveAllData() {
     }
 }
 saveAllData()
+
+export function deleteCharacter(id) {
+    const data = localStorage.getItem('db_characters');
+    if (!data) return false;
+
+    const characters = JSON.parse(data);
+    const filtered = characters.filter(c => c.id !== id);
+
+    localStorage.setItem('db_characters', JSON.stringify(filtered));
+    return true;
+}
+export function updateCharacter(id, updatedData) {
+    const data = localStorage.getItem('db_characters');
+    if (!data) return false;
+
+    const characters = JSON.parse(data);
+    const index = characters.findIndex(c => c.id === id);
+    if (index === -1) return false;
+
+    // Fusiona los datos originales con los nuevos
+    characters[index] = { ...characters[index], ...updatedData };
+
+    localStorage.setItem('db_characters', JSON.stringify(characters));
+    return true;
+}
