@@ -6,6 +6,7 @@
 
 import { loadNavbar } from './components/navbar.js';
 import { router } from './router.js';
+import { saveAllData } from './services/api.js';
 
 /**
  * Navega entre rutas sin recargar.

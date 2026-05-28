@@ -55,8 +55,8 @@ export async function saveAllData() {
         // Guardamos cada lista en LocalStorage
         localStorage.setItem('db_characters', JSON.stringify(personajes));
         localStorage.setItem('db_episodes', JSON.stringify(episodios));
-        localStorage.setItem('db_locations', JSON.stringify(ubicaciones));        
-        
+        localStorage.setItem('db_locations', JSON.stringify(ubicaciones));
+
         // Devolvemos un objeto con toda la información unificada
         return { personajes, episodios, ubicaciones };
 
@@ -65,9 +65,18 @@ export async function saveAllData() {
         return { personajes: [], episodios: [], ubicaciones: [] };
     }
 }
-saveAllData()
+
+
+if (!localStorage.getItem('db_characters')){saveAllData()
+}
 
 export function deleteCharacter(id) {
+    const estaSeguro = confirm("¿Estás seguro de que deseas eliminar este personaje?");
+
+    if (!estaSeguro) {
+        return false;
+    }
+
     const data = localStorage.getItem('db_characters');
     if (!data) return false;
 
@@ -77,6 +86,7 @@ export function deleteCharacter(id) {
     localStorage.setItem('db_characters', JSON.stringify(filtered));
     return true;
 }
+
 export function updateCharacter(id, updatedData) {
     const data = localStorage.getItem('db_characters');
     if (!data) return false;
