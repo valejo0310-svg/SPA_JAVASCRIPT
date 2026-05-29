@@ -1,5 +1,4 @@
 import { loadHTML } from '../utils/helpers.js';
-import { getCharacters } from '../services/api.js';
 import { characterCard } from '../components/characterCard.js';
 import { deleteCharacter, updateCharacter } from '../services/api.js';
 import { saveAllData } from '../services/api.js';

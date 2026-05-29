@@ -189,6 +189,13 @@ button{
     font-weight: bold;
     transition: .3s ease;
 }
+.btn--status{
+    width: 30%;
+    /* background-color: #2563eb; */
+    padding: 3px;
+    margin-bottom: 9px;
+    color: white;
+}
 
 /* PRIMARY */
 

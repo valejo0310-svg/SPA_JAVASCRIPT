@@ -3,9 +3,12 @@
  */
 
 export function characterCard(character) {
+    const confirmarLabel = (character.nuevo)? character.nuevo.toUpperCase()  : "API";
+    const color = (character.nuevo)? "#5ec95aff"  : "#2563eb";
 
     return `
-        <article class="card">
+        <article class="card" id="container-character">
+       <button style = "background-color: ${color};" class = "btn btn--status" id="new">${confirmarLabel}</button>
             <img
                 src="${character.image}"
                 alt="${character.name}"

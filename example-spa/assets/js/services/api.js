@@ -4,8 +4,6 @@
 
 import httpClient from './httpClient.js';
 const CHARACTERS_KEY = 'db_characters';
-const EPISODES_KEY = 'db_episodes';
-const LOCATIONS_KEY = 'db_locations';
 /**
  * Obtiene personajes.
  *
@@ -93,7 +91,8 @@ export function createCharacter(characterData) {
         status: characterData.status,
         species: characterData.species,
         gender: characterData.gender,
-        image: characterData.image
+        image: characterData.image,
+        nuevo: "NEW"
     };
 
     characters.push(newCharacter);
