@@ -53,14 +53,17 @@ npm run dev
 
 ## Rutas disponibles
 
-| Ruta | Vista |
-|---|---|
-| `/` | Personajes |
-| `/episodes` | Episodios |
-| `/locations` | Ubicaciones |
-| `/new` | Crear personaje |
-| `/about` | Acerca de |
-| `/contacts` | Contacto |
+`/` Personajes 
+
+`/episodes` :  Episodios 
+
+`/locations` : Ubicaciones 
+
+`/new` : Crear personaje 
+
+`/about` : Acerca de 
+
+`/contacts` : Contacto 
 
 ---
 
@@ -68,12 +71,16 @@ npm run dev
 
 Todas las operaciones se aplican sobre `localStorage` y **no modifican la API pública**.
 
-| Operación | Descripción |
-|---|---|
-| **Crear** | Formulario en `/new` — el personaje se agrega al `localStorage` y coexiste con los de la API |
-| **Leer** | Al cargar la app, los datos se obtienen de la API una sola vez y se guardan localmente |
-| **Editar** | Desde la card del personaje — permite modificar nombre, especie y estado |
-| **Eliminar** | Desde la card — elimina del DOM y del `localStorage` con confirmación previa |
+
+
+**Crear** :Formulario en `/new` — el personaje se agrega al `localStorage` y coexiste con los de la API 
+
+**Leer** : Al cargar la app, los datos se obtienen de la API una sola vez y se guardan localmente 
+
+**Editar** :  Desde la card del personaje — permite modificar nombre, especie y estado 
+
+**Eliminar** : Desde la card — elimina del DOM y del `localStorage` con confirmación previa 
+
 
 ### Persistencia
 
@@ -95,3 +102,40 @@ Click en nav  →  navigateTo(url)  →  pushState  →  router()  →  renderVi
 ```
 
 Los links usan `data-link` para ser interceptados por el router en lugar de seguir el comportamiento nativo del navegador.
+
+## Preguntas de analisis
+
+### Pregunta 1
+
+- ¿Cómo manejarán el estado de personajes creados localmente?
+
+Los personajes creados de forma local son guardados en el arreglo con la información de la API local, donde es posible editar su estado sin intervenir con la API, unicamente es posible verlos de forma local
+
+### Pregunta 2
+
+- ¿Cómo diferenciarán personajes originales de personajes ficticios?
+
+Agregandole un label al cual se le cambia el color y el texto interno que inidica si pertenece a la API o son nuevos, para este proceso se utilizo un operador ternario que utiliza de condición la clave otorgada en la función de crear personaje, y a partir de esto se cambia el color y el texto interno
+
+### Pregunta 3 
+
+- ¿Cómo sincronizarán:
+API
+DOM
+localStorage
+renderizado SPA?
+
+En la API se toman los datos haciendole una única petición, esta respuesta es almacena en local storage y la información renderizada en el DOM viene directamente del localStorage, y por medio de el renderizado dinámico y los eventos de JavaScript la información cambia dinámicamente tomando un solo contenedor donde se reemplaza el contenido
+
+### Pregunta 4
+
+-¿Cómo evitarán duplicación de lógica?
+
+Mantenemos variables y funciones reutilizables que permiten realizar el resto de funciones sin reescribir la información necesaria
+
+### Pregunta 5 
+
+-¿Qué componentes pueden reutilizarse?
+
+Reutilizamos las clases, funciones y variables que permitien ser reutilizados a lo largo del programa
+
